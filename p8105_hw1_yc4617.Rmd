@@ -20,6 +20,10 @@ data("penguins", package = "palmerpenguins")
 penguins
 ```
 ```{r}
+names(penguins)
+```
+
+```{r}
 nrow(penguins)
 ```
 

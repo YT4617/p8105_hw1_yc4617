@@ -378,6 +378,10 @@ length is 200.9152 .</p>
 ## 10 Adelie  Torgersen           42            20.2               190        4250
 ## # ℹ 334 more rows
 ## # ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+<pre class="r"><code>names(penguins)</code></pre>
+<pre><code>## [1] &quot;species&quot;           &quot;island&quot;            &quot;bill_length_mm&quot;   
+## [4] &quot;bill_depth_mm&quot;     &quot;flipper_length_mm&quot; &quot;body_mass_g&quot;      
+## [7] &quot;sex&quot;               &quot;year&quot;</code></pre>
 <pre class="r"><code>nrow(penguins)</code></pre>
 <pre><code>## [1] 344</code></pre>
 <pre class="r"><code>ncol(penguins)</code></pre>
@@ -424,16 +428,16 @@ print(df)</code></pre>
 <pre><code>## # A tibble: 10 × 4
 ##    Random_Sample Logical_Vector Character_Vector Factor_Vector
 ##            &lt;dbl&gt; &lt;lgl&gt;          &lt;chr&gt;            &lt;fct&gt;        
-##  1        0.546  TRUE           A                Level_3      
-##  2        0.303  TRUE           B                Level_1      
-##  3        0.359  TRUE           C                Level_1      
-##  4        0.178  TRUE           D                Level_1      
-##  5        2.15   TRUE           E                Level_2      
-##  6       -0.594  FALSE          F                Level_3      
-##  7       -0.513  FALSE          G                Level_1      
-##  8        0.439  TRUE           H                Level_1      
-##  9       -0.0571 FALSE          I                Level_2      
-## 10       -0.439  FALSE          J                Level_3</code></pre>
+##  1        0.344  TRUE           A                Level_2      
+##  2       -0.0903 FALSE          B                Level_2      
+##  3        0.283  TRUE           C                Level_3      
+##  4       -0.421  FALSE          D                Level_1      
+##  5        1.83   TRUE           E                Level_2      
+##  6       -0.601  FALSE          F                Level_2      
+##  7        0.105  TRUE           G                Level_1      
+##  8        2.61   TRUE           H                Level_2      
+##  9       -1.82   FALSE          I                Level_3      
+## 10        0.428  TRUE           J                Level_3</code></pre>
 <pre class="r"><code># Step 2: Take the mean of each variable
 mean_random_sample &lt;- df %&gt;% pull(Random_Sample) %&gt;% mean()
 mean_logical_vector &lt;- df %&gt;% pull(Logical_Vector) %&gt;% mean()
@@ -442,7 +446,7 @@ mean_character_vector &lt;- df %&gt;% pull(Character_Vector) %&gt;% mean()</code
 <pre class="r"><code>mean_factor_vector &lt;- df %&gt;% pull(Factor_Vector) %&gt;% mean()</code></pre>
 <pre><code>## Warning in mean.default(.): argument is not numeric or logical: returning NA</code></pre>
 <pre class="r"><code>print(mean_random_sample)       # work</code></pre>
-<pre><code>## [1] 0.2369785</code></pre>
+<pre><code>## [1] 0.2662794</code></pre>
 <pre class="r"><code>print(mean_logical_vector)      # work</code></pre>
 <pre><code>## [1] 0.6</code></pre>
 <pre class="r"><code>print(mean_character_vector)    # doesn&#39;t work (character variable cannot be calculated mean)</code></pre>

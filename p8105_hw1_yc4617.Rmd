@@ -1,0 +1,77 @@
+---
+title: "p8105_hw1_yc4617"
+output: 
+github_document:
+    html_preview: false
+date: "2024-09-20"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# Problem 1:
+The penguins data set: The data set includes 8 variables named species, island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, and year. It has 344 x 8 data. And the mean of flipper length is 200.9152 .
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+```{r}
+penguins
+```
+```{r}
+nrow(penguins)
+```
+
+```{r}
+ncol(penguins)
+```
+```{r}
+mean(penguins$flipper_length_mm,na.rm = TRUE)
+```
+Scatterplot and save:
+```{r}
+library(ggplot2)
+ggplot(penguins, aes(x=bill_length_mm, y=flipper_length_mm,color = "species")) + geom_point()
+ggsave(file = "first_scatterplot.pdf")
+```
+# Problem 2:
+```{r}
+library(tidyverse)
+
+# Step 1: Create the DataFrame
+sample <- rnorm(10)
+logical_vector <- sample > 0
+char_vector <- c('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J')
+factor_vector <- factor(sample(c("Level_1", "Level_2", "Level_3"), 10, replace = TRUE))
+
+df <- tibble(
+  Random_Sample = sample,
+  Logical_Vector = logical_vector,
+  Character_Vector = char_vector,
+  Factor_Vector = factor_vector
+)
+
+print(df)
+```
+
+
+```{r}
+# Step 2: Take the mean of each variable
+mean_random_sample <- df %>% pull(Random_Sample) %>% mean()
+mean_logical_vector <- df %>% pull(Logical_Vector) %>% mean()
+mean_character_vector <- df %>% pull(Character_Vector) %>% mean()
+mean_factor_vector <- df %>% pull(Factor_Vector) %>% mean()
+
+print(mean_random_sample)       # work
+print(mean_logical_vector)      # work
+print(mean_character_vector)    # doesn't work (character variable cannot be calculated mean)
+print(mean_factor_vector)       # doesn't work (factor variable cannot be calculated mean)
+```
+```{r warning = FALSE}
+# Convert variables
+numeric_logical_vector <- as.numeric(df$Logical_Vector) # work so it could be calculated mean in the last part
+numeric_character_vector <- as.numeric(df$Character_Vector) # doesn't work, so non-numeric variables cannot be calculated mean
+numeric_factor_vector <- as.numeric(df$Factor_Vector)
+```
+

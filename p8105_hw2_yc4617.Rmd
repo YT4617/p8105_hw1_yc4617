@@ -1,0 +1,12 @@
+---
+title: "p8105_hw2_yc4617"
+output: 
+  github_document:
+    html_preview: false
+date: "2024-09-30"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
